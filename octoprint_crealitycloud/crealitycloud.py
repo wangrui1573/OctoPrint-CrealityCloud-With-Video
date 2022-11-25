@@ -427,14 +427,14 @@ class CrealityCloud(object):
                 self.video_start()
             else:
                 self._aliprinter.video = 0
-
+        #手动指定打印机型号，用于第三方固件识别错误
         elif event == Events.FIRMWARE_DATA:
             if "MACHINE_TYPE" in payload["data"]:
-                self.model = payload["data"]["MACHINE_TYPE"]
+                self.model = "Ender-3 V2"
                 if self.thingsboard is not None:
                     self._aliprinter.model = self.model
             elif "Machine_Name" in payload["data"]:
-                self.model = payload["data"]["Machine_Name"]
+                self.model = "Ender-3 V2"
                 if self.thingsboard is not None:
                     self._aliprinter.model = self.model
 
