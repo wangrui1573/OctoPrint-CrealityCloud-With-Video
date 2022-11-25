@@ -1,3 +1,7 @@
+1.因安装第三方固件，导致读取机器型号与官方不符合，造成无限修改机器型号，故修改代码手动指定型号
+2.修改视频流问webmpegsteam，不限制于官方摄像头型号
+
+
 # OctoPrint-Crealitycloud-With-Video
 ![main.png](https://cdn.nlark.com/yuque/0/2022/png/22795356/1642471464755-f2818b50-20a2-4b88-8dcd-ac3a56c80654.png#clientId=u473873a0-7629-4&crop=0&crop=0&crop=1&crop=1&from=drop&id=ub6c0b987&margin=%5Bobject%20Object%5D&name=main.png&originHeight=631&originWidth=700&originalType=binary&ratio=1&rotation=0&showTitle=false&size=443430&status=done&style=none&taskId=u403a724d-b949-42c7-90ae-1a1b334eeb7&title=)
 
