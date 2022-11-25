@@ -236,7 +236,7 @@ class WebrtcManager():
                 peerConnection.addTrack(webcam.video)
                 capabilities = RTCRtpSender.getCapabilities("video")
                 #从H264修改为VP8，降低CPU使用率，压缩传输到云端
-                preferences = list(filter(lambda x: x.name == "VP9", capabilities.codecs))
+                preferences = list(filter(lambda x: x.name == "VP8", capabilities.codecs))
                 #preferences += list(filter(lambda x: x.name == "VP8", capabilities.codecs))
                 preferences += list(filter(lambda x: x.name == "rtx", capabilities.codecs))
                 #t = peerConnection.getTransceivers()[0]
