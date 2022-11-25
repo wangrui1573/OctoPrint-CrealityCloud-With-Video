@@ -219,7 +219,9 @@ class WebrtcManager():
             if self.options.get('cameraDevice'):
                 if len(peer['media']) == 0:
                 #webcam = MediaPlayer(self.options.get('cameraDevice'), format="v4l2", options=options)
-                    webcam = MediaPlayer('rtsp://127.0.0.1:8554/ch0_0', format="rtsp", options=options)
+                    #webcam = MediaPlayer('rtsp://127.0.0.1:8554/ch0_0', format="rtsp", options=options)
+                    #修改为未mpeg-steam
+                    webcam = MediaPlayer('http://192.168.31.232:8000/webcam/?action=stream')
                 else:
                     webcam = MediaPlayer(self.filepath)
         peer['mediaplayer'] = webcam
@@ -233,7 +235,8 @@ class WebrtcManager():
             elif t.kind == "video" and webcam and webcam.video:
                 peerConnection.addTrack(webcam.video)
                 capabilities = RTCRtpSender.getCapabilities("video")
-                preferences = list(filter(lambda x: x.name == "H264", capabilities.codecs))
+                #从H264修改为VP8，降低CPU使用率，压缩传输到云端
+                preferences = list(filter(lambda x: x.name == "VP9", capabilities.codecs))
                 #preferences += list(filter(lambda x: x.name == "VP8", capabilities.codecs))
                 preferences += list(filter(lambda x: x.name == "rtx", capabilities.codecs))
                 #t = peerConnection.getTransceivers()[0]
